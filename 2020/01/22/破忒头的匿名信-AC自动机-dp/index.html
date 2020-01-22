@@ -63,7 +63,7 @@
 <meta property="og:site_name" content="WA_King&#39;s blog">
 <meta property="og:description" content="题目题目链接">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-22T08:22:40.899Z">
+<meta property="og:updated_time" content="2020-01-22T08:36:17.214Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="破忒头的匿名信(AC自动机+dp)">
 <meta name="twitter:description" content="题目题目链接">
@@ -278,7 +278,7 @@
 <a id="more"></a>
 
 <h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><p>给了n个单词,$s_1,s_2,s_3…$,每个单词有一定的代价.用这些单词组成给定的文本串T,求代价和最小.</p>
-<p>$\sum_{i=1}^n |s_i|&lt;=5e^5$,$|T|&lt;=5e^5$</p>
+<p>$\sum_{i=1}^n |s_i|\le5e^5$,$|T|\le5e^5$</p>
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>这题的重点就是限制了字符串的总长度.</p>
 <p>由于长度不同的字符串不会超过$\sqrt{\sum_{i}^n|s_i|}$  ,因此AC自动机上用fail数组转移时不会超过$\sqrt{\sum_{i}^n|s_i|}$次,也许你并没理解,详细解释一下.</p>
 <p>首先,$1+2+3+…+n=\frac{(n+1)*n}{2}$,因此如果总长度为$len$,那么字符串的个数不会超过$\sqrt{len}$ </p>
@@ -338,6 +338,10 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2020/01/22/最大公约数-脑洞/" rel="prev" title="最大公约数(脑洞)">
+                  最大公约数(脑洞) <i class="fa fa-chevron-right"></i>
+                </a>
               
             </div>
           </div>
@@ -404,7 +408,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -430,7 +434,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
