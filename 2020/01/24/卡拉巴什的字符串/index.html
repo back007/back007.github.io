@@ -55,19 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="什么是$dfs$序对于一棵树，我们从根节点进行$dfs$。如果第$x$次访问的点为$a$，$a$的$dfs$序为$x$。 即：$dfs$序为在该点在$dfs$中的访问次序">
-<meta name="keywords" content="树">
+  <meta name="description" content="题目题目链接">
+<meta name="keywords" content="字符串">
 <meta property="og:type" content="article">
-<meta property="og:title" content="有关dfs序的子树问题">
-<meta property="og:url" content="https://back007.github.io/2019/09/17/有关dfs序的子树问题/index.html">
+<meta property="og:title" content="卡拉巴什的字符串(后缀自动机)">
+<meta property="og:url" content="https://back007.github.io/2020/01/24/卡拉巴什的字符串/index.html">
 <meta property="og:site_name" content="WA_King&#39;s blog">
-<meta property="og:description" content="什么是$dfs$序对于一棵树，我们从根节点进行$dfs$。如果第$x$次访问的点为$a$，$a$的$dfs$序为$x$。 即：$dfs$序为在该点在$dfs$中的访问次序">
+<meta property="og:description" content="题目题目链接">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-22T14:13:48.277Z">
+<meta property="og:updated_time" content="2020-01-24T13:11:47.166Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="有关dfs序的子树问题">
-<meta name="twitter:description" content="什么是$dfs$序对于一棵树，我们从根节点进行$dfs$。如果第$x$次访问的点为$a$，$a$的$dfs$序为$x$。 即：$dfs$序为在该点在$dfs$中的访问次序">
-  <link rel="canonical" href="https://back007.github.io/2019/09/17/有关dfs序的子树问题/">
+<meta name="twitter:title" content="卡拉巴什的字符串(后缀自动机)">
+<meta name="twitter:description" content="题目题目链接">
+  <link rel="canonical" href="https://back007.github.io/2020/01/24/卡拉巴什的字符串/">
 
 
 <script id="page-configurations">
@@ -81,7 +81,7 @@
   };
 </script>
 
-  <title>有关dfs序的子树问题 | WA_King's blog</title>
+  <title>卡拉巴什的字符串(后缀自动机) | WA_King's blog</title>
   
 
 
@@ -218,7 +218,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="https://back007.github.io/2019/09/17/有关dfs序的子树问题/">
+    <link itemprop="mainEntityOfPage" href="https://back007.github.io/2020/01/24/卡拉巴什的字符串/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WA_King">
@@ -230,7 +230,7 @@
       <meta itemprop="name" content="WA_King's blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">有关dfs序的子树问题
+        <h1 class="post-title" itemprop="name headline">卡拉巴什的字符串(后缀自动机)
 
           
         </h1>
@@ -246,7 +246,7 @@
                 
               
 
-              <time title="创建时间：2019-09-17 12:42:00" itemprop="dateCreated datePublished" datetime="2019-09-17T12:42:00+08:00">2019-09-17</time>
+              <time title="创建时间：2020-01-24 21:01:36" itemprop="dateCreated datePublished" datetime="2020-01-24T21:01:36+08:00">2020-01-24</time>
             </span>
           
             <span class="post-meta-item">
@@ -274,53 +274,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="什么是-dfs-序"><a href="#什么是-dfs-序" class="headerlink" title="什么是$dfs$序"></a>什么是$dfs$序</h2><p>对于一棵树，我们从根节点进行$dfs$。如果第$x$次访问的点为$a$，$a$的$dfs$序为$x$。</p>
-<p>即：$dfs$序为在该点在$dfs$中的访问次序</p>
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="https://ac.nowcoder.com/acm/problem/201889" target="_blank" rel="noopener">题目链接</a></p>
 <a id="more"></a>
 
-<h2 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h2><ul>
-<li>节点的$dfs$序总大于该点子树中各点的$dfs$序</li>
-<li>节点的子树$dfs$序连续</li>
-</ul>
-<p>因此我们如何$dfs$这棵树并不重要，我们以任意顺序遍历这棵树的子节点都可以。因为遍历的顺序并不影响$dfs$序的性质。</p>
-<p>利用性质我们可以把一类子树问题转化为区间问题。</p>
-<h2 id="经典应用"><a href="#经典应用" class="headerlink" title="经典应用"></a>经典应用</h2><p>$dfso[x]$表示$x$节点的$dfs$序，$num[x]$表示$x$节点子树中的节点树，$deep[x]$表示节点x的深度</p>
-<h3 id="单点修改，子树查询"><a href="#单点修改，子树查询" class="headerlink" title="单点修改，子树查询"></a>单点修改，子树查询</h3><ul>
-<li>修改$x$点权值</li>
-<li>查询$x$子树权值和</li>
-</ul>
-<p>询问$x$点的子树权值和，即询问$dfs[x]$到$dfs[x]+num[x]$这段区间的和。用线段树或者树状数组维护即可。</p>
-<h3 id="链修改，点查询"><a href="#链修改，点查询" class="headerlink" title="链修改，点查询"></a>链修改，点查询</h3><ul>
-<li>将$(u,v)$这条链上的点权值增加$a$</li>
-<li>查询点$x$的权值</li>
-</ul>
-<p>我们可以利用树差分，将问题转化为子树问题。</p>
-<p>用$change$数组记录修改，我们将修改操作是视作 $change[v]$与$change[u]$增加$a$,$change[lca(u,v)]$与$change[fa[lca(u,v)]]$减少$a$。对于$x$节点的权值变化就等于，$x$子树的$change$数组和。用线段树或者树状数组维护即可。</p>
-<h3 id="链修改，子树查询"><a href="#链修改，子树查询" class="headerlink" title="链修改，子树查询"></a>链修改，子树查询</h3><ul>
-<li>将$(u,v)$这条链上的点权值增加$a$</li>
-<li>查询点$x$子树的权值和</li>
-</ul>
-<p>首先$dfs$求出$deep$数组，将每次链修改转化为差分数组的修改。</p>
-<p>对于查询$x$子树权值和操作为子树区间中求$\sum{(deep[i]-deep[x]+1)*chang[i]}$</p>
-<p>两个树状数组分别记录$deep[i]*change[i]$和$change[i]$,这样每次查询操作就转化为区间修改。</p>
-<h3 id="单点修改，树链和查询"><a href="#单点修改，树链和查询" class="headerlink" title="单点修改，树链和查询"></a>单点修改，树链和查询</h3><ul>
-<li>$x$点权值增加$v$</li>
-<li>查询链$(u,v)$的权值和</li>
-</ul>
-<p>我们维护点到根节点的权值和$rootsum[i]$</p>
-<p>$(u,v)$的权值和=$rootsum[u]+rootsum[v]-rootsum[lca(u,v)]-rootsum[fa[lca(u,v)]]$</p>
-<p>现在考虑修改对查询的影响，但$x$点增加$v$时，$x$的子树$rootsum$全部增加$v$,我们用查分数组记录区间修改，树状数组求前缀和快速查询$rootsum$</p>
-<h3 id="子树修改，点查询"><a href="#子树修改，点查询" class="headerlink" title="子树修改，点查询"></a>子树修改，点查询</h3><ul>
-<li>$x$的子树权值全部加$v$</li>
-<li>查询点$x$的权值</li>
-</ul>
-<p>树状数组+查分</p>
-<h3 id="子树修改，树链查询"><a href="#子树修改，树链查询" class="headerlink" title="子树修改，树链查询"></a>子树修改，树链查询</h3><ul>
-<li>$x$的子树权值全部加$v$</li>
-<li>查询链$( u, v )$的权值</li>
-</ul>
-<p>我们维护点到根节点的权值和$rootsum[i]$</p>
-<p>差分数组记录子树修改。完事。</p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>在sam中,两个后缀的lcp等于这两个节点在parent树上lca所对应的节点的maxlen,</p>
+<p>因此如果一个节点儿子节点,那么这个节点的maxlen就会成为某两个节点的lcp.</p>
+<p>我们动态的插入节点,每新建一个节点就把该节点的父亲节点对应的maxlen设为出现过.</p>
+<p>注意此题需要特殊判断输出为0的情况.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; pii;</span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vi;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debug(x) cerr&lt;&lt;#x&lt;&lt;<span class="meta-string">' '</span>&lt;&lt;x&lt;&lt;<span class="meta-string">'\n'</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mp make_pair</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pb push_back</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> fi first</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> se second</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i,a,b) for(int i=(a);i&lt;=(b);i++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> per(i,a,b) for(int i=(a);i&gt;=(b);i--)</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">1e6</span>+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf=<span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">bool</span> vis[maxn];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sam</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> t[maxn&lt;&lt;<span class="number">1</span>][<span class="number">26</span>], len[maxn&lt;&lt;<span class="number">1</span>] = &#123;<span class="number">-1</span>&#125;, fa[maxn&lt;&lt;<span class="number">1</span>], sz = <span class="number">2</span>, last = <span class="number">1</span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123; <span class="built_in">memset</span>(t, <span class="number">0</span>, (sz + <span class="number">10</span>) * <span class="keyword">sizeof</span> t[<span class="number">0</span>]); sz = <span class="number">2</span>; last = <span class="number">1</span>; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> l=len[fa[id]];</span><br><span class="line">        <span class="keyword">if</span>(l&gt;=<span class="number">0</span>) vis[l]=<span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">ins</span><span class="params">(<span class="keyword">int</span> ch)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> p = last, np = last = sz++;</span><br><span class="line">        len[np] = len[p] + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (; p &amp;&amp; !t[p][ch]; p = fa[p]) t[p][ch] = np;</span><br><span class="line">        <span class="keyword">if</span> (!p) &#123; fa[np] = <span class="number">1</span>,update(np); <span class="keyword">return</span>; &#125;</span><br><span class="line">        <span class="keyword">int</span> q = t[p][ch];</span><br><span class="line">        <span class="keyword">if</span> (len[p] + <span class="number">1</span> == len[q]) fa[np] = q,update(np);</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> nq = sz++; len[nq] = len[p] + <span class="number">1</span>;</span><br><span class="line">            <span class="built_in">memcpy</span>(t[nq], t[q], <span class="keyword">sizeof</span> t[<span class="number">0</span>]);</span><br><span class="line">            fa[nq] = fa[q];</span><br><span class="line">            update(nq);</span><br><span class="line">            fa[np] = fa[q] = nq;</span><br><span class="line">            update(np);</span><br><span class="line">            <span class="keyword">for</span> (; t[p][ch] == q; p = fa[p]) t[p][ch] = nq;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;sam;</span><br><span class="line"><span class="keyword">char</span> str[maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);<span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--) &#123;</span><br><span class="line">       <span class="built_in">cin</span>&gt;&gt;str;</span><br><span class="line">       sam.init();</span><br><span class="line">       <span class="keyword">int</span> len=<span class="built_in">strlen</span>(str),now=<span class="number">0</span>;</span><br><span class="line">       rep(i,<span class="number">0</span>,len) vis[i]=<span class="literal">false</span>;</span><br><span class="line">       sam.ins(str[<span class="number">0</span>]-<span class="string">'a'</span>);</span><br><span class="line">       <span class="built_in">cout</span>&lt;&lt;<span class="number">0</span>&lt;&lt;(len<span class="number">-1</span>==<span class="number">0</span>?<span class="string">'\n'</span>:<span class="string">' '</span>);</span><br><span class="line">       <span class="keyword">bool</span> f=<span class="literal">true</span>;</span><br><span class="line">       rep(i,<span class="number">1</span>,len<span class="number">-1</span>) &#123;</span><br><span class="line">           sam.ins(str[i]-<span class="string">'a'</span>);</span><br><span class="line">           <span class="keyword">if</span>(f&amp;&amp;str[i]==str[<span class="number">0</span>])  &#123;</span><br><span class="line">                <span class="built_in">cout</span>&lt;&lt;<span class="number">0</span>&lt;&lt;(i==len<span class="number">-1</span>?<span class="string">'\n'</span>:<span class="string">' '</span>);</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">else</span> f=<span class="literal">false</span>;</span><br><span class="line">           <span class="keyword">while</span>(now&lt;i&amp;&amp;vis[now]) now++;</span><br><span class="line">           <span class="built_in">cout</span>&lt;&lt;now&lt;&lt;(i==len<span class="number">-1</span>?<span class="string">'\n'</span>:<span class="string">' '</span>);</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -337,7 +299,7 @@
     <strong>本文作者： </strong>WA_King</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://back007.github.io/2019/09/17/有关dfs序的子树问题/" title="有关dfs序的子树问题">https://back007.github.io/2019/09/17/有关dfs序的子树问题/</a>
+    <a href="https://back007.github.io/2020/01/24/卡拉巴什的字符串/" title="卡拉巴什的字符串(后缀自动机)">https://back007.github.io/2020/01/24/卡拉巴什的字符串/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
@@ -352,7 +314,7 @@
           
           <div class="post-tags">
             
-              <a href="/tags/树/" rel="tag"><i class="fa fa-tag"></i> 树</a>
+              <a href="/tags/字符串/" rel="tag"><i class="fa fa-tag"></i> 字符串</a>
             
           </div>
         
@@ -362,8 +324,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/09/15/三维偏序-cdq分治/" rel="next" title="三维偏序(cdq分治)">
-                  <i class="fa fa-chevron-left"></i> 三维偏序(cdq分治)
+                <a href="/2020/01/22/最大公约数-脑洞/" rel="next" title="最大公约数(脑洞)">
+                  <i class="fa fa-chevron-left"></i> 最大公约数(脑洞)
                 </a>
               
             </div>
@@ -371,10 +333,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/10/19/c语言/" rel="prev" title="c语言">
-                  c语言 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -423,7 +381,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是-dfs-序"><span class="nav-number">1.</span> <span class="nav-text">什么是$dfs$序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性质"><span class="nav-number">2.</span> <span class="nav-text">性质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#经典应用"><span class="nav-number">3.</span> <span class="nav-text">经典应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单点修改，子树查询"><span class="nav-number">3.1.</span> <span class="nav-text">单点修改，子树查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链修改，点查询"><span class="nav-number">3.2.</span> <span class="nav-text">链修改，点查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链修改，子树查询"><span class="nav-number">3.3.</span> <span class="nav-text">链修改，子树查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单点修改，树链和查询"><span class="nav-number">3.4.</span> <span class="nav-text">单点修改，树链和查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子树修改，点查询"><span class="nav-number">3.5.</span> <span class="nav-text">子树修改，点查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子树修改，树链查询"><span class="nav-number">3.6.</span> <span class="nav-text">子树修改，树链查询</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分析"><span class="nav-number">1.1.</span> <span class="nav-text">分析</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
