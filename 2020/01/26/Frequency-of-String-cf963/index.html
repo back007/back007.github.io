@@ -63,7 +63,7 @@
 <meta property="og:site_name" content="WA_King&#39;s blog">
 <meta property="og:description" content="题目题目链接">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-27T05:37:43.333Z">
+<meta property="og:updated_time" content="2020-01-29T07:32:21.596Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Frequency of String(cf963)">
 <meta name="twitter:description" content="题目题目链接">
@@ -278,7 +278,7 @@
 <a id="more"></a>
 
 <h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><p>给出字符串s,$|s|\le 1e^5$,有n个询问,每个询问给出字符串$m_i$,和整数$k_i$(每个字符串都不相同),求s的一个子串,字符串$m_i$出现了$k_i$次,求子串的最短长度,如果不存在这样的子串输出-1.</p>
-<p>$\sum_1^n |m_i|\le1e^5$</p>
+<p>$\sum_{i=1}^n |m_i|\le1e^5$</p>
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>用n个询问的字符串$m_i$建AC自动机.</p>
 <p>我们定义match数组:match[i]为i节点的最长后缀,并且这个后缀是n个询问串中的一个.如果不存在这样的后缀那么match[i]为AC自动机的根节点.</p>
 <p>由于限制了询问字符串的总长度,而长度不同的字符串不超过$\sqrt{\sum_1^n|m_i|}$ 个.</p>
@@ -405,7 +405,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -431,7 +431,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
