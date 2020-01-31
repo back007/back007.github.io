@@ -63,7 +63,7 @@
 <meta property="og:site_name" content="WA_King&#39;s blog">
 <meta property="og:description" content="题目题目链接">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-29T07:32:05.189Z">
+<meta property="og:updated_time" content="2020-01-30T12:47:06.421Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cf1284-New Year and Castle Construction(计算几何)">
 <meta name="twitter:description" content="题目题目链接">
@@ -281,7 +281,7 @@
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>考虑一下容斥,$f(i)=$所有的情况-不包含第$i$个点的情况</p>
 <p>所有的情况=$C_4^{n-1}$ (剩余的n-1个点中选4个点)</p>
 <p>如何计算不包含第$i$个点情况?</p>
-<p>首先以第$i$个点为原点进行极角排序,从小到大枚举每一个点,以当前点和原点的连线将剩余n-1个点分为左右两部分. 我们还需要选择三个点,如果这三个点都在同一侧,那么这四个点组成的四边形就不会包含原点.</p>
+<p>首先以第$i$个点为原点进行极角排序,从小到大枚举每一个点,以当前点和原点的连线将剩余n-2个点分为左右两部分. 我们还需要选择三个点,如果这三个点都在同一侧,那么这四个点组成的四边形就不会包含原点.</p>
 <p>为了避免重复计算,我们只计算逆时针方向的那部分,也就是在与当前点叉积大于0的所有点中选三个点.  </p>
 <p>由于我们是从大到小枚举当前点的,而所有叉积的大于0的点一段连续的区域,因此我们把原点和当前点的连线设为边界,另一边界用一个单调指针维护.</p>
 <p>应为我们要对每个点为原点的情况都进行一次极角排序,因此复杂度为$O(n^2logn)$</p>
@@ -407,7 +407,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
